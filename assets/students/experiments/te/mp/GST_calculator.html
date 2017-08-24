@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GST calculator</title>
+	<style type="text/css">
+		body,label,option,select,button,input{
+			padding: 5px;
+			margin: 15px;
+		}
+	</style>
+</head>
+<body>
+<div id="gst" align="center">
+	<label>Services: </label>
+        <select id="service">
+           <option value="mobile">mobile.</option>
+           <option value="restaurant">restaurant.</option>
+           <option value="grocery">grocery.</option>
+           <option value="electronics">electronics.</option>
+        </select>
+        <br>
+    <label>GST: </label>
+    <select id="gst">
+    	<option value="5%">5%</option>
+    	<option value="10%">10%</option>
+    	<option value="12%">12%</option>
+    	<option value="28%">28%</option>
+    </select>
+    <br>
+    Original price: 
+    <input type="number" id="price" required>
+    <br>
+    <button onclick="calculate()">Calculate GST</button>
+    <br>
+    Service: 
+    <input type="text" id="serv"><br>
+	GST Tax: 
+	<input type="text" id="tax"><br>
+	Original Price: 
+    <input type="text" id="org"><br>
+    GST tax:
+    <input type="text" id="gst_tax"><br>
+    Net Amount: 
+    <input type="text" id="result"><br>
+
+
+
+    <script type="text/javascript">
+    function calculate() {
+    	var service,gst,orgprice,netamount,gstamount;
+    	service=document.getElementById('service').value;
+    	gst=parseInt(document.getElementById('gst').value);
+    	orgprice=document.getElementById('price').value;
+    	gstamount=(orgprice*gst)/100;
+    	netamount =gstamount + orgprice;
+	 	document.getElementById('serv').value = service;
+	 	document.getElementById('tax').value = gst;
+	 	document.getElementById('org').value = orgprice;
+	 	document.getElementById('gst_tax').value = gstamount;
+	 	document.getElementById('result').value = netamount;
+	 }
+    </script>
+ </div>
+</body>
+</html>
